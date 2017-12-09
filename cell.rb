@@ -1,7 +1,7 @@
 class Cell
   attr_accessor :alive
-  def initialize
-    @alive = [true, false].sample
+  def initialize(status)
+    @alive = status
   end
 
 end

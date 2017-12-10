@@ -21,6 +21,10 @@ describe Cell do
       expect(@dead_cell.alive).to be false
     end
 
+    it "raises an argument error if not given true or false" do
+      expect{ Cell.new("string") }.to raise_error(ArgumentError)
+    end
+
   end
 
   describe "#generate" do

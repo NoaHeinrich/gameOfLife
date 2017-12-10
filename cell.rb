@@ -1,6 +1,7 @@
 class Cell
   attr_accessor :alive
   def initialize(status=[true,false].sample)
+    raise ArgumentError, "Argument is not a boolean" unless [true,false].include? status
     @alive = status
   end
 

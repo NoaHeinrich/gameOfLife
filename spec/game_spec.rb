@@ -31,14 +31,19 @@ describe Game do
       expect(@board.grid[0][0]).to be_a Cell
     end
 
+    it "raises an ArgumentError if height is not and Integer" do
+      expect{ Game.new(3.4, 5) }.to raise_error(ArgumentError)
+    end
+
+    it "raises an ArgumentError if width is not an Integer" do
+      expect{ Game.new(3, 5.2) }.to raise_error(ArgumentError)
+    end
+
   end
 
   describe "#count_neighbors" do
     it "returns the number of living neighbors" do
-      #@board.grid[0].map! {|x| x.alive = true }
-      #@board.grid[2].map! {|x| x.alive = true }
-      #@board.grid[1][0].alive = true
-      #@board.grid[1][2].alive = true
+
       @board.grid = [
         [Cell.new(true),Cell.new(true),Cell.new(true)],
         [Cell.new(true),Cell.new(true),Cell.new(true)],

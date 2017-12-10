@@ -3,6 +3,8 @@ class Game
   attr_reader :height, :width
   attr_accessor :grid
   def initialize(height, width)
+    raise ArgumentError, "Height must be an integer" unless height.is_a? Integer
+    raise ArgumentError, "Width must be an integer" unless width.is_a? Integer
     @height = height
     @width = width
     @grid = Array.new(height) {Array.new(width) { Cell.new } }

@@ -98,6 +98,57 @@ describe Game do
       @board.play_tick
       expect(@board.grid[0].length).to eq 3
     end
+
+    it "kills living cell with no living neighbors" do
+      @board.grid = [
+        [Cell.new(false),Cell.new(false),Cell.new(false)],
+        [Cell.new(false),Cell.new(true),Cell.new(false)],
+        [Cell.new(false),Cell.new(false),Cell.new(false)]
+      ]
+      @board.play_tick
+      expect(@board.grid[1][1].alive).to be false
+    end
+
+    it "revives a dead cell if it has 3 living neighbors" do
+      @board.grid = [
+        [Cell.new(false),Cell.new(true),Cell.new(false)],
+        [Cell.new(true),Cell.new(true),Cell.new(false)],
+        [Cell.new(false),Cell.new(false),Cell.new(false)]
+      ]
+      @board.play_tick
+      expect(@board.grid[0][0].alive).to be true
+    end
+
+    it "kills a live cell with 4 living neighbors" do
+      @board.grid = [
+        [Cell.new(true),Cell.new(true),Cell.new(true)],
+        [Cell.new(true),Cell.new(true),Cell.new(false)],
+        [Cell.new(false),Cell.new(false),Cell.new(false)]
+      ]
+      @board.play_tick
+      expect(@board.grid[1][1].alive).to be false
+    end
+
+    it "leaves a living cell alive if it has 3 living neighbors" do
+      @board.grid = [
+        [Cell.new(true),Cell.new(true),Cell.new(false)],
+        [Cell.new(true),Cell.new(true),Cell.new(false)],
+        [Cell.new(false),Cell.new(false),Cell.new(false)]
+      ]
+      @board.play_tick
+      expect(@board.grid[0][0].alive).to be true
+    end
+
+    it "leaves a dead cell dead if it has 4 living neighbors" do
+      @board.grid = [
+        [Cell.new(false),Cell.new(true),Cell.new(false)],
+        [Cell.new(true),Cell.new(false),Cell.new(true)],
+        [Cell.new(false),Cell.new(true),Cell.new(false)]
+      ]
+      @board.play_tick
+      expect(@board.grid[1][1].alive).to be false
+    end
+
   end
 
 end

@@ -38,10 +38,15 @@ describe Game do
 
   describe "#count_neighbors" do
     it "returns the number of living neighbors" do
-      @board.grid[0].map! {|x| x.alive = true }
-      @board.grid[2].map! {|x| x.alive = true }
-      @board.grid[1][0].alive = true
-      @board.grid[1][2].alive = true
+      #@board.grid[0].map! {|x| x.alive = true }
+      #@board.grid[2].map! {|x| x.alive = true }
+      #@board.grid[1][0].alive = true
+      #@board.grid[1][2].alive = true
+      @board.grid = [
+        [Cell.new(true),Cell.new(true),Cell.new(true)],
+        [Cell.new(true),Cell.new(true),Cell.new(true)],
+        [Cell.new(true),Cell.new(true),Cell.new(true)]
+      ]
       expect(@board.count_neighbors(1,1)).to eq 8
     end
   end

@@ -45,7 +45,15 @@ class Game
   def to_s
     string = ""
     @grid.each do |row|
-      string += row.to_s + "\n"
+      row.each do |cell|
+        if cell.alive
+          string += "X"
+        else
+          string += "O"
+        end
+        string += " "
+      end
+      string += "\n"
     end
     string
   end

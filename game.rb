@@ -10,6 +10,7 @@ class Game
     #sum = 0
     # check all neighbors, look for boundaries
     # if neigbor is alive, sum++
+    #return sum
   end
 
   def play_tick

@@ -51,6 +51,7 @@ class Game
         else
           string += "O"
         end
+        string += " "
       end
       string += "\n"
     end

@@ -15,8 +15,8 @@ class Game
     #return sum
     sum = 0
     sum += count_row_above(x,y)
-    sum += count_row_below
-    sum += count_sides
+    sum += count_row_below(x,y)
+    sum += count_sides(x,y)
     sum
 
   end
@@ -28,6 +28,26 @@ class Game
     #pass neigbor_num to cell to decide if it lives or dies
     #add living or dead cell to new_grid
     #@grid = new_grid
+    new_grid = Array.new(@height) { Array.new(@width) }
+    @grid.each_with_index do |row, row_index|
+      row.each_with_index do |c, c_index|
+        cell = c
+        live_neighbors = count_neighbors(c_index, row_index)
+        new_cell = cell.generate(live_neighbors)
+        new_grid[row_index][c_index] = new_cell
+      end
+    end
+
+    @grid = new_grid
+
+  end
+
+  def to_s
+    string = ""
+    @grid.each do |row|
+      string += row.to_s + "\n"
+    end
+    string
   end
 
   private
@@ -83,5 +103,7 @@ class Game
         sum += 1
       end
     end
+    sum
   end
+
 end

@@ -6,12 +6,18 @@ class Game
     @grid = Array.new(height) {Array.new(width) { Cell.new } }
   end
 
-  def count_neighbors
+  def count_neighbors(x, y)
     #sum = 0
-    #new_grid = []
-    #@grid.each do
-    #  row.each do
-    #    if not out of bounds, get each neighbor
+    # check all neighbors, look for boundaries
+    # if neigbor is alive, sum++
+  end
 
+  def play_tick
+    #new_grid = []
+    #iterate through each row
+    #neighbor_num = count_neighbors
+    #pass neigbor_num to cell to decide if it lives or dies
+    #add living or dead cell to new_grid
+    #@grid = new_grid
   end
 end

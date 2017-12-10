@@ -13,6 +13,8 @@ class Game
     # check all neighbors, look for boundaries
     # if neigbor is alive, sum++
     #return sum
+
+
   end
 
   def play_tick
@@ -22,5 +24,24 @@ class Game
     #pass neigbor_num to cell to decide if it lives or dies
     #add living or dead cell to new_grid
     #@grid = new_grid
+  end
+
+  private
+  def count_row_above(x,y)
+    sum = 0
+    if x > 0 && y > 0
+      if @grid[y-1][x-1].alive
+        sum += 1
+      end
+    elsif y > 0 && x < @width-1
+      if @grid[y-1][x+1].alive
+        sum += 1
+      end
+    elsif y > 0
+      if grid[y-1][x].alive
+        sum += 1
+      end
+    end
+    sum
   end
 end

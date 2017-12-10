@@ -21,10 +21,6 @@ describe Cell do
       expect(@dead_cell.alive).to be false
     end
 
-    it "creates a Cell object that is either alive or dead if no input given" do
-      new_cell = Cell.new
-      expect(new_cell.alive).to be true or be false
-    end
   end
 
   describe "#generate" do

@@ -14,11 +14,11 @@ describe Cell do
     end
 
     it "returns true if alive" do
-      expect(@live_cell.alive).to be_true
+      expect(@live_cell.alive).to be true
     end
 
     it "returns false if not alive" do
-      expect(@dead_cell).to be_false
+      expect(@dead_cell.alive).to be false
     end
   end
 
@@ -30,17 +30,27 @@ describe Cell do
 
     it "returns a live Cell if living cell has 2 neighbors" do
       new_cell = @live_cell.generate(2)
-      expect(new_cell.alive).to be_true
+      expect(new_cell.alive).to be true
     end
 
     it "returns a dead Cell if living cell has less than 2 neighbors" do
       new_cell = @live_cell.generate(1)
-      expect(new_cell.alive).to be_false
+      expect(new_cell.alive).to be false
     end
 
     it "returns a dead Cell if living cell has more than 3 neighbors" do
       new_cell = @live_cell.generate(4)
-      expect(new_cell.alive).to be_false
+      expect(new_cell.alive).to be false
+    end
+
+    it "returns a life cell if dead cell has 3 neighbors exactly" do
+      new_cell=@dead_cell.generate(3)
+      expect(new_cell.alive).to be true
+    end
+
+    it "returns a dead cell if dead cell has less than 3 neighbors" do
+      new_cell=@dead_cell.generate(2)
+      expect(new_cell.alive).to be false
     end
   end
 end

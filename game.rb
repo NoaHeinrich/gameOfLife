@@ -13,7 +13,11 @@ class Game
     # check all neighbors, look for boundaries
     # if neigbor is alive, sum++
     #return sum
-
+    sum = 0
+    sum += count_row_above(x,y)
+    sum += count_row_below
+    sum += count_sides
+    sum
 
   end
 

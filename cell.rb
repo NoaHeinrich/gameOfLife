@@ -15,7 +15,7 @@ class Cell
     #    return live cell
     #  else
     #    return dead cell
-    if cell.alive
+    if self.alive
       if neighbors < 2 || neighbors > 3
         new_cell = Cell.new(false)
       else
@@ -26,7 +26,9 @@ class Cell
         new_cell = Cell.new(true)
       else
         new_cell = Cell.new(false)
+      end
     end
+
   end
 
 end

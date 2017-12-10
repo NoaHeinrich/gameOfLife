@@ -13,12 +13,17 @@ describe Cell do
       expect(@live_cell).to be_a Cell
     end
 
-    it "returns true if alive" do
+    it "creates a living cell" do
       expect(@live_cell.alive).to be true
     end
 
-    it "returns false if not alive" do
+    it "creates a dead cell" do
       expect(@dead_cell.alive).to be false
+    end
+
+    it "creates a Cell object that is either alive or dead if no input given" do
+      new_cell = Cell.new
+      expect(new_cell.alive).to be true or be false
     end
   end
 

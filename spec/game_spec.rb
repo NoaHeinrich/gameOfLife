@@ -24,7 +24,7 @@ describe Game do
     end
 
     it "initializes with a grid of width columns" do
-      expect(@board.grid[0]length).to eq 3
+      expect(@board.grid[0].length).to eq 3
     end
 
     it "initializes with a grid of Cell objects" do

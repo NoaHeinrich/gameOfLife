@@ -67,7 +67,17 @@ class Game
     sum
   end
 
-  def count_sides(x)
+  def count_sides(x,y)
     sum = 0
+    if x > 0
+      if @grid[y][x-1].alive
+        sum += 1
+      end
+    end
+    if x < @width-1
+      if @grid[y][x+1].alive
+        sum += 1
+      end
+    end
   end
 end

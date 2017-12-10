@@ -33,15 +33,41 @@ class Game
       if @grid[y-1][x-1].alive
         sum += 1
       end
-    elsif y > 0 && x < @width-1
+    end
+    if y > 0 && x < @width-1
       if @grid[y-1][x+1].alive
         sum += 1
       end
-    elsif y > 0
+    end
+    if y > 0
       if grid[y-1][x].alive
         sum += 1
       end
     end
     sum
+  end
+
+  def count_row_below(x,y)
+    sum = 0
+    if x > 0 && y < @height-1
+      if @grid[y+1][x-1].alive
+        sum += 1
+      end
+    end
+    if x < @width-1 && y < @height-1
+      if @grid[y+1][x+1].alive
+        sum += 1
+      end
+    end
+    if y < @height-1
+      if @grid[y+1][x].alive
+        sum += 1
+      end
+    end
+    sum
+  end
+
+  def count_sides(x)
+    sum = 0
   end
 end

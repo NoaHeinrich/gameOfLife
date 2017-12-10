@@ -1,5 +1,7 @@
 require_relative "cell"
 class Game
+  attr_reader :height, :width
+  attr_accessor :grid
   def initialize(height, width)
     @height = height
     @width = width
